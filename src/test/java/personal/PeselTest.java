@@ -11,7 +11,7 @@ class PeselTest {
     public void toShortPeselTest() {
         String toShortPesel = "901020123";
         assertThrows(
-            StringIndexOutOfBoundsException.class,
+            Exception.class,
             () -> new Pesel(toShortPesel)
         );
     }
@@ -19,7 +19,7 @@ class PeselTest {
     @Test
     public void toShortPeselTestNextAssertion() {
         String toLongPesel = "901020123";
-        assertThatExceptionOfType(StringIndexOutOfBoundsException.class)
+        assertThatExceptionOfType(Exception.class)
                 .isThrownBy(() -> new Pesel(toLongPesel));
     }
 
