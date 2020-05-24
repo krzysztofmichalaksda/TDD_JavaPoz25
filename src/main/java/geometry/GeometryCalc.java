@@ -8,8 +8,9 @@ public class GeometryCalc {
     public static void main(String[] args) {
         double squareSide = 7;
         Square square1 = new Square(squareSide);
+        double area = square1.getArea();
         System.out.println("Pole kwadratu o boku " + squareSide +
-                " wynosi: " + square1.getArea()
+                " wynosi: " + area
         );
 
         double a = 56;
