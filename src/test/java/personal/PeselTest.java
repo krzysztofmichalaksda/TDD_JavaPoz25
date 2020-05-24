@@ -9,10 +9,10 @@ class PeselTest {
 
     @Test
     public void toShortPeselTest() {
-        String toLongPesel = "901020123";
+        String toShortPesel = "901020123";
         assertThrows(
             StringIndexOutOfBoundsException.class,
-            () -> new Pesel(toLongPesel)
+            () -> new Pesel(toShortPesel)
         );
     }
 
@@ -21,6 +21,18 @@ class PeselTest {
         String toLongPesel = "901020123";
         assertThatExceptionOfType(StringIndexOutOfBoundsException.class)
                 .isThrownBy(() -> new Pesel(toLongPesel));
+    }
+
+    @Test
+    public void isCorrectPositive() throws Exception {
+        Pesel pesel = new Pesel("91022406132");
+        assertTrue(pesel.isCorrect());
+    }
+
+    @Test
+    public void isCorrectNegative() throws Exception {
+        Pesel pesel = new Pesel("91022406137");
+        assertFalse(pesel.isCorrect());
     }
 
 }

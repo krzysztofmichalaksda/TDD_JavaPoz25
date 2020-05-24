@@ -5,7 +5,11 @@ public class Pesel {
 
     int[] peselArray = new int[peselLength];
 
-    public Pesel(String pesel) {
+    public Pesel(String pesel) throws Exception {
+        if (pesel.length() != 11) {
+            throw new Exception("Pesel has incorrect length!");
+        }
+
         for (int i = 0; i < peselLength; i++) {
             peselArray[i] = Character.getNumericValue(pesel.charAt(i));
         }

@@ -5,7 +5,7 @@ import personal.person.Pesel;
 import java.util.Scanner;
 
 public class PersonalDetails {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         Pesel pesel1;
         do {

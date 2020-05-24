@@ -2,7 +2,7 @@ package geometry.polygons;
 
 public class Triangle {
     double base;
-    double height;
+    double height = 0;
     double firstArm;
     double secondArm;
 
@@ -25,10 +25,16 @@ public class Triangle {
     }
 
     public double getPerimeter() {
-        return 2*base + 2*height;
+        return base + firstArm + secondArm;
     }
 
     public double getArea() {
-        return base*height/2;
+        if (height > 0) {
+            return base*height/2;
+        } else {
+            double p = getPerimeter() / 2;
+
+            return Math.sqrt(p*(p-base)*(p-firstArm)*(p-secondArm));
+        }
     }
 }
