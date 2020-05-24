@@ -13,8 +13,13 @@ public class Add {
     }
 
     public static int numbersInterval(int firstEdge, int secondEdge) {
+        if (firstEdge > secondEdge) {
+            int box = firstEdge;
+            firstEdge = secondEdge;
+            secondEdge = box;
+        }
         int sum = 0;
-        for (int number = firstEdge; number < secondEdge; number++) {
+        for (int number = firstEdge; number <= secondEdge; number++) {
             sum += number;
         }
 

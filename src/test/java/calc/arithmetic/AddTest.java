@@ -8,15 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AddTest {
 
     @Test
-    void addTest() {
-        int expected = 33;
-        int a = 11;
-        int b = 22;
-        int actual = a + b;
-        assertEquals(expected, actual);
-    }
-
-    @Test
     void multiNumberResultZero() {
         double expected = 0;
         Double[] testData = {-100.0, 0.0, 100.0};
@@ -31,15 +22,24 @@ class AddTest {
         assertThat(actual)
                 .isGreaterThan(0)
                 .isNotNull()
-                .isNotNegative();
+                .isNotNegative()
+                .isLessThan(1000000);
     }
 
     @Test
-    void numbersIntervalSum() {
+    void numbersIntervalSumSpecificSum() {
         int expected = 15;
         int first = 1;
         int second = 5;
         int actual = Add.numbersInterval(first, second);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void numbersIntervalFirstGraterThanSecond() {
+        int first = 5;
+        int second = 1;
+        int actual = Add.numbersInterval(first, second);
+        assertThat(actual).isGreaterThan(0);
     }
 }
